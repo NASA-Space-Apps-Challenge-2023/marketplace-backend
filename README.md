@@ -1,4 +1,4 @@
-# Nodo Laboratorios Futuros - Backend API
+# NASA Open Science Marketplace - Backend API
 
 This project provides a backend API for managing lab spaces, users, and reservations.
 
