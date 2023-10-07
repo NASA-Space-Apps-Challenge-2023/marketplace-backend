@@ -2,8 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from server.routes.user import router as UserRouter
 from server.routes.authentication import router as AuthRouter
-from server.routes.reservation import router as ReservationRouter
-from server.routes.labspace import router as LabSpaceRouter
+from server.routes.project import router as ProjectRouter
 from fastapi.staticfiles import StaticFiles
 from decouple import config
 
@@ -27,12 +26,10 @@ app.add_middleware(
 
 app.include_router(AuthRouter, tags=["Authentication"])
 app.include_router(UserRouter, tags=["User"], prefix="/user")
-app.include_router(LabSpaceRouter, tags=["LabSpace"], prefix="/labspace")
-app.include_router(ReservationRouter, tags=[
-                   "Reservation"], prefix="/reservation")
+app.include_router(ProjectRouter, tags=["Project"], prefix="/project")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.get("/", tags=["Root"])
 async def read_root():
-    return {"message": "Welcome to NODO!"}
+    return {"message": "Welcome to Scicollab API!"}

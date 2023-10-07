@@ -10,6 +10,14 @@ def user_helper(user) -> dict:
         "name": user["name"],
         "email": user["email"],
         "password": user.get("password", ""),
+        "skills": user.get("skills", []),
+        "projects_created": user.get("projects_created", []),
+        "projects_participating": user.get("projects_participating", []),
+        "availability": user.get("availability", ""),
+        "interests": user.get("interests", []),
+        "orcid_id": user.get("orcid_id", ""),
+        "communications": user.get("communications", []),
+        "privacy_preference": user.get("privacy_preference", True),
     }
 
 
