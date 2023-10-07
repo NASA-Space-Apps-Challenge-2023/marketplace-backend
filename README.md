@@ -56,4 +56,4 @@ Once the application is running, API documentation can be accessed at http://loc
 
 ## License
 
-This project is licensed under the [MIT License](https://chat.openai.com/c/LICENSE).
+This project is licensed under the [Apache License](LICENSE).
