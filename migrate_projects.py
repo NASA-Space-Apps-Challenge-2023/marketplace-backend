@@ -10,8 +10,6 @@ MONGO_URL = config(
     default="mongodb://root:examplepassword@localhost:27017/?authMechanism=DEFAULT"
 )
 
-print(MONGO_URL)
-
 # Load CSV data
 df = pd.read_csv("./feed.csv")
 
@@ -35,8 +33,8 @@ def transform_row_to_schema(row) -> dict:
             "project_url_on_catalog": row.get("project_url_on_catalog", ""),
             "project_url_external": row.get("project_url_external", ""),
             "project_description": row.get("project_description", ""),
-            "keywords": str(row.get("keywords", "")).split(", "),
-            "fields_of_science": str(row.get("fields_of_science", "")).split(", "),
+            "keywords": str(row.get("keywords", [])).split(", "),
+            "fields_of_science": str(row.get("fields_of_science", [])).split(", "),
             "project_status": row.get("project_status", ""),
             "agency_sponsor": row.get("agency_sponsor", ""),
             "agency_sponsor_other": row.get("agency_sponsor_other", "N/A"),
@@ -44,7 +42,7 @@ def transform_row_to_schema(row) -> dict:
             "gov_contact_email": row.get("gov_contact_email", ""),
             "geographic_scope": row.get("geographic_scope", ""),
             "participant_age": row.get("participant_age", ""),
-            "participation_tasks": str(row.get("participation_tasks", "")).split(", "),
+            "participation_tasks": str(row.get("participation_tasks", [])).split(", "),
             "scistarter": row.get("scistarter", ""),
             "email": row.get("email", "no-email@example.com"),
             "start_date": row.get("start_date", ""),
