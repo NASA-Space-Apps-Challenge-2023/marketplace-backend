@@ -46,7 +46,6 @@ class UpdateUserModel(BaseModel):
     communications: Optional[List[str]]
     privacy_preference: Optional[bool]
 
-# Rest of your models code remains the same.
 
 def ResponseModel(data, message):
     return {
