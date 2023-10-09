@@ -10,7 +10,7 @@ class Keyword:
 
 
 @strawberry.type
-class Query:
+class KeywordQuery:
     @strawberry.field
     async def keywords(self, id: Optional[str] = None) -> List[Keyword]:
         if id:
@@ -21,7 +21,7 @@ class Query:
 
 
 @strawberry.type
-class Mutation:
+class KeywordMutation:
     @strawberry.mutation
     async def add_keyword(self, keyword: str) -> Keyword:
         new_keyword_data = await keyword_db.add_keyword({"keyword": keyword})
@@ -30,4 +30,4 @@ class Mutation:
     # Additional mutations like update or delete can be added here
 
 
-schema = strawberry.Schema(query=Query, mutation=Mutation)
+# schema = strawberry.Schema(query=KeywordQuery, mutation=KeywordMutation)

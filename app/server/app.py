@@ -6,7 +6,7 @@ from server.routes.project import router as ProjectRouter
 from server.routes.keyword import router as KeywordRouter
 from fastapi.staticfiles import StaticFiles
 from strawberry.fastapi import GraphQLRouter
-from server.graphql.keyword import schema as keyword_schema
+from server.graphql.schema import schema
 from decouple import config
 
 is_production = config('PROJECT_ENVIRONMENT', default="DEVELOPMENT")
@@ -32,7 +32,7 @@ app.include_router(UserRouter, tags=["User"], prefix="/user")
 app.include_router(ProjectRouter, tags=["Project"], prefix="/project")
 app.include_router(KeywordRouter, tags=["Keyword"], prefix="/keyword")
 app.include_router(
-    GraphQLRouter(schema=keyword_schema),
+    GraphQLRouter(schema=schema),
     prefix="/graphql",
     tags=["GraphQL"]
 )
