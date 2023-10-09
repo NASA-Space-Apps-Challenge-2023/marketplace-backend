@@ -6,7 +6,7 @@ BASE_URL = "http://localhost:8000"
 # 1. Login
 login_endpoint = f"{BASE_URL}/login"
 login_data = {
-    "username": "john.doe@nodoeafit.com",  # Your user's email
+    "username": "john.doe@scicollab.com",  # Your user's email
     "password": "securepassword"         # Your user's password
 }
 
